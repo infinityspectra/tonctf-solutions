@@ -67,8 +67,8 @@ contract Dex with Deployable {
         // Get the current context
         let ctx: Context = context();
         // Require required balance
-        dump(myBalance());
-        dump(ton("1.0") + self.storageReserve + msg.value);
+        // dump(myBalance());
+        // dump(ton("1.0") + self.storageReserve + msg.value);
         require(myBalance() > ton("1.0") + self.storageReserve + msg.value, "Insufficient balance");
         // Withdraw
         send(SendParameters{
@@ -99,7 +99,7 @@ contract Dex with Deployable {
     }
 
     get fun low_balance(): Bool {
-        dump(myBalance());
+        // dump(myBalance());
         if (myBalance() < ton("0.5")) {
            return true; 
         }

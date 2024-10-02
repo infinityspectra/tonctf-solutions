@@ -46,10 +46,10 @@ class Dex {
             this.userBalances.set(2, userB + outAmount);
             this.tokenaAmount = x + amount;
             this.tokenbAmount = y - outAmount;
-            console.log(`(a->b) in: ${amount}, Out: ${outAmount}`);
-            console.log(
-                `Dex: ${this.tokenaAmount}, ${this.tokenbAmount}, User: ${this.userBalances.get(1)}, ${this.userBalances.get(2)}`,
-            );
+            // console.log(`(a->b) in: ${amount}, Out: ${outAmount}`);
+            // console.log(
+            //     `Dex: ${this.tokenaAmount}, ${this.tokenbAmount}, User: ${this.userBalances.get(1)}, ${this.userBalances.get(2)}`,
+            // );
         } else {
             if (userB < amount) {
                 throw new Error('Insufficient balance in B');
@@ -59,10 +59,10 @@ class Dex {
             this.userBalances.set(2, userB - amount);
             this.tokenaAmount = x - outAmount;
             this.tokenbAmount = y + amount;
-            console.log(`(b->a) in: ${amount}, Out: ${outAmount}`);
-            console.log(
-                `Dex: ${this.tokenaAmount}, ${this.tokenbAmount}, User: ${this.userBalances.get(1)}, ${this.userBalances.get(2)}`,
-            );
+            // console.log(`(b->a) in: ${amount}, Out: ${outAmount}`);
+            // console.log(
+            //     `Dex: ${this.tokenaAmount}, ${this.tokenbAmount}, User: ${this.userBalances.get(1)}, ${this.userBalances.get(2)}`,
+            // );
         }
 
         // 检查是否解锁
@@ -109,7 +109,7 @@ function swingSwap(
         dex.swap(amount, secondDirection);
         let newBalance = dex.getBalances();
         if (newBalance > currentBalance) {
-            console.log(`Delta: ${newBalance - currentBalance}, Current balance sum: ${newBalance}`);
+            // console.log(`Delta: ${newBalance - currentBalance}, Current balance sum: ${newBalance}`);
             positiveDeltaSwaps.push({ amount, firstDirection, secondDirection });
             amount = 0; // reset amount
         }
@@ -124,7 +124,7 @@ function swingSwap(
         return { success: false, currentBalance, amount }; // Stop when error happens
     }
 
-    console.log(`\n`);
+    // console.log(`\n`);
     return { success: true, currentBalance, amount };
 }
 
@@ -148,7 +148,7 @@ export function simulate() {
         let dexBBalance = dex.tokenbAmount;
         let userABalance = dex.userBalances.get(1)!;
         let userBBalance = dex.userBalances.get(2)!;
-        console.log(`Dex: ${dexABalance}, ${dexBBalance}, User: ${userABalance}, ${userBBalance}`);
+        // console.log(`Dex: ${dexABalance}, ${dexBBalance}, User: ${userABalance}, ${userBBalance}`);
 
         let result;
         if (dexABalance === dexBBalance) {
@@ -178,7 +178,7 @@ export function simulate() {
         maxTry--;
     }
 
-    console.log('Positive Delta Swaps:', positiveDeltaSwaps);
+    // console.log('Positive Delta Swaps:', positiveDeltaSwaps);
 
     return positiveDeltaSwaps;
 }
