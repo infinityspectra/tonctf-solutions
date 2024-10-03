@@ -92,8 +92,8 @@ function swingSwap(
         amount: number;
         firstDirection: number;
         secondDirection: number;
-    }>
-): { success: boolean, currentBalance: number, amount: number } {
+    }>,
+): { success: boolean; currentBalance: number; amount: number } {
     try {
         dex.swap(amount, firstDirection);
     } catch (e) {

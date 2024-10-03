@@ -14,7 +14,7 @@ Unlike submitting solution to the TonBit official website and interacting with a
 - [x] Dex
 - [x] Puzzle
 - [x] Random
-- [ ] Merkle Airdrop
+- [x] Merkle Airdrop
 - [ ] Curve
 - [ ] Curve2
 - [ ] Curve3

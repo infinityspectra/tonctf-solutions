@@ -55,10 +55,12 @@ contract MerkleAirdrop with Deployable {
             i = i + 1;
         }
         self.merkleRoot = leaf;
+        dump(self.merkleRoot);
     }
 
     // solve 
     get fun is_solved(): Bool {
+        dump(self.reserve);
         return self.reserve == 0;
     }
 
@@ -114,6 +116,7 @@ contract MerkleAirdrop with Deployable {
         let leaf: Int = sha256(seedBuilder.toString());
 
         require(self.verify(leaf, msg.proofs, msg.proofLength),"Invalid account or amount");
+        dump("pass verify");
         self.claimedMap.set(msg.recipient,true);
         let position: Int? = self.positions.get(msg.recipient);
         self.reserve = self.reserve - msg.amount;

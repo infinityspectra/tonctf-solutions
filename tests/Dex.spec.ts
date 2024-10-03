@@ -60,10 +60,10 @@ describe('Dex', () => {
                     value: toNano('0.2'),
                 },
                 {
-                    $$type: "Swap",
+                    $$type: 'Swap',
                     amount: BigInt(swap.amount),
                     a_b: BigInt(swap.firstDirection),
-                }
+                },
             );
 
             await dex.send(
@@ -80,10 +80,10 @@ describe('Dex', () => {
         }
 
         let sum = await dex.getUserBalanceSum();
-        console.log("Balance Sum: ", sum);
+        console.log('Balance Sum: ', sum);
 
         expect(await dex.getIsUnlocked()).toBe(true);
-        
+
         let afterContractBalance = fromNano(await dex.getContractBalance());
 
         console.log(`Before: ${beforeContractBalance}, After: ${afterContractBalance}`);
@@ -96,9 +96,9 @@ describe('Dex', () => {
                 value: toNano('2'), // increase myBalance()
             },
             {
-                $$type: "Withdraw",
-                value: withdrawAmount
-            }
+                $$type: 'Withdraw',
+                value: withdrawAmount,
+            },
         );
 
         expect(await dex.getLowBalance()).toBe(true);
@@ -108,8 +108,8 @@ describe('Dex', () => {
             {
                 value: toNano('0.1'),
             },
-            "Solve"
-        )
+            'Solve',
+        );
 
         expect(await dex.getIsSolved()).toBe(true);
     });
