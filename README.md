@@ -8,6 +8,17 @@ Check https://ctf.tonbit.xyz/ and https://github.com/TonBitSec/TonCTF-Challenges
 
 Unlike submitting solution to the TonBit official website and interacting with a privately deployed blockchain, all solutions here are demonstrated through local tests. Some contracts have been slightly modified to aid in debugging.
 
+## Status
+
+- [x] Airdrop
+- [x] Dex
+- [x] Puzzle
+- [x] Random
+- [ ] Merkle Airdrop
+- [ ] Curve
+- [ ] Curve2
+- [ ] Curve3
+
 ## Project structure
 
 -   `contracts` - source code of all the smart contracts of the project and their dependencies.
